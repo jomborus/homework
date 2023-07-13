@@ -1,0 +1,1 @@
+https://kazakovanton.notion.site/kazakovanton/Activity-1-Homework-2826d9a095ce437ea9d9cf49b8cd34c1
