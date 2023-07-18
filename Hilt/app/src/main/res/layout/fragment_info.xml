@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.info.InfoFragment"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/text_name_tittle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/MaterialAlertDialog.MaterialComponents.Title.Text"
+        android:text="@string/name" />
+
+    <TextView
+        android:id="@+id/text_name_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/name" />
+
+    <TextView
+        android:id="@+id/text_surname_tittle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/MaterialAlertDialog.MaterialComponents.Title.Text"
+        android:text="@string/surname" />
+
+    <TextView
+        android:id="@+id/text_surname_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/surname" />
+
+    <TextView
+        android:id="@+id/text_birthday_tittle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/MaterialAlertDialog.MaterialComponents.Title.Text"
+        android:text="@string/birthday" />
+
+    <TextView
+        android:id="@+id/text_birthday_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/birthday" />
+
+    <TextView
+        android:id="@+id/text_address_tittle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/MaterialAlertDialog.MaterialComponents.Title.Text"
+        android:text="@string/address" />
+
+    <TextView
+        android:id="@+id/text_address_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/address" />
+
+    <TextView
+        android:id="@+id/text_interests_tittle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/MaterialAlertDialog.MaterialComponents.Title.Text"
+        android:text="@string/interests" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chip_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

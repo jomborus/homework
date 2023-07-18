@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/firstInfoFragment">
+
+    <fragment
+        android:id="@+id/firstInfoFragment"
+        android:name="ru.otus.basicarchitecture.ui.firstInfo.FirstInfoFragment"
+        android:label="fragment_first_info"
+        tools:layout="@layout/fragment_first_info" >
+        <action
+            android:id="@+id/action_firstInfoFragment_to_addressFragment"
+            app:destination="@id/addressFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addressFragment"
+        android:name="ru.otus.basicarchitecture.ui.address.AddressFragment"
+        android:label="fragment_address"
+        tools:layout="@layout/fragment_address" >
+        <action
+            android:id="@+id/action_addressFragment_to_interestsFragment"
+            app:destination="@id/interestsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/interestsFragment"
+        android:name="ru.otus.basicarchitecture.ui.interests.InterestsFragment"
+        android:label="fragment_interests"
+        tools:layout="@layout/fragment_interests" >
+        <action
+            android:id="@+id/action_interestsFragment_to_infoFragment"
+            app:destination="@id/infoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="ru.otus.basicarchitecture.ui.info.InfoFragment"
+        android:label="fragment_info"
+        tools:layout="@layout/fragment_info" />
+</navigation>
