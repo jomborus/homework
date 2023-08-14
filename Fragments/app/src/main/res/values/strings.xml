@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Fragments</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="open_fragment_aa">Open Fragment AA</string>
+    <string name="open_fragment_a">Open Fragment A</string>
+    <string name="open_fragment_ab">Open Fragment AB</string>
 </resources>
