@@ -44,18 +44,17 @@ class InterestsFragment : Fragment() {
                     chips.add(it.text.toString())
                 }
             }
+
             viewModel.onClickListener(chips)
         }
         binding.chipGroup.rootView
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.navigate.collect {
-                    if (it) {
-                        findNavController().navigate(
-                            R.id.infoFragment,
-                            savedInstanceState
-                        )
-                    }
+                    findNavController().navigate(
+                        R.id.infoFragment,
+                        savedInstanceState
+                    )
                 }
             }
         }

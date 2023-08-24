@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -14,8 +16,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import ru.otus.basicarchitecture.R
 import ru.otus.basicarchitecture.databinding.FragmentAddressBinding
-import ru.otus.basicarchitecture.databinding.FragmentFirstInfoBinding
-import ru.otus.basicarchitecture.ui.firstInfo.FirstInfoViewModel
 
 @AndroidEntryPoint
 class AddressFragment : Fragment() {
@@ -37,23 +37,34 @@ class AddressFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this)[AddressViewModel::class.java]
 
+        binding.textAddress.doOnTextChanged { text, _, _, _ ->
+            viewModel.doOnTextChanged(text.toString())
+        }
+
         binding.buttonNext.setOnClickListener {
             viewModel.setOnClickListener(
-                binding.textCountry.text.toString(),
-                binding.textCity.text.toString(),
                 binding.textAddress.text.toString()
             )
         }
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.navigate.collect {
-                    if (it) {
-                        findNavController().navigate(
-                            R.id.interestsFragment,
-                            savedInstanceState
-                        )
-                    }
+                    findNavController().navigate(
+                        R.id.interestsFragment,
+                        savedInstanceState
+                    )
                 }
+            }
+        }
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.state.collect {list ->
+                        binding.textAddress.setAdapter(ArrayAdapter(
+                            requireContext(),
+                            android.R.layout.simple_dropdown_item_1line,
+                            list.toTypedArray()
+                        ))
+                    }
             }
         }
     }

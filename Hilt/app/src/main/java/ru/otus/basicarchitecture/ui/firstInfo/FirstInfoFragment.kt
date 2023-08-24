@@ -57,12 +57,10 @@ class FirstInfoFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.navigate.collect {
-                    if (it) {
-                        findNavController().navigate(
-                            R.id.addressFragment,
-                            savedInstanceState
-                        )
-                    }
+                    findNavController().navigate(
+                        R.id.addressFragment,
+                        savedInstanceState
+                    )
                 }
             }
         }

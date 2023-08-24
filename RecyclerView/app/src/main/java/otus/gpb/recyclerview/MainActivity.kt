@@ -53,29 +53,6 @@ class MainActivity : AppCompatActivity() {
             addOnScrollListener(paging)
         }
 
-//        val itemTouchHelper = ItemTouchHelper(object : ItemTouchHelper.Callback() {
-//            override fun getMovementFlags(
-//                recyclerView: RecyclerView,
-//                viewHolder: RecyclerView.ViewHolder
-//            ): Int {
-//                return makeMovementFlags(ItemTouchHelper.DOWN, ItemTouchHelper.START)
-//            }
-//
-//            override fun onMove(
-//                recyclerView: RecyclerView,
-//                viewHolder: RecyclerView.ViewHolder,
-//                target: RecyclerView.ViewHolder
-//            ): Boolean {
-//                return false
-//            }
-//
-//            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-//                val position = viewHolder.adapterPosition
-//                mainAdapter.removeItem(position)
-//                mainAdapter.notifyItemRemoved(position)
-//            }
-//
-//        })
         val itemTouchHelper = ItemTouchHelper(object : SwipeToDeleteCallback(applicationContext){
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, i: Int) {
                 val position = viewHolder.adapterPosition

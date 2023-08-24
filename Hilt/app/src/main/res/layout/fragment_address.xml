@@ -6,25 +6,11 @@
     tools:context=".ui.address.AddressFragment"
     android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/text_country"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/country"
-        android:inputType="text" />
-
-    <EditText
-        android:id="@+id/text_city"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/city"
-        android:inputType="text" />
-
-    <EditText
+    <AutoCompleteTextView
         android:id="@+id/text_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
+        android:layout_margin="6dp"
         android:hint="@string/address" />
 
     <Button
