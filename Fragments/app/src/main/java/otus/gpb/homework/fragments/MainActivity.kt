@@ -1,25 +1,24 @@
 package otus.gpb.homework.fragments
 
-import android.R
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
-import otus.gpb.homework.fragments.databinding.ActivityMainBinding
-
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityMainBinding
+    private lateinit var fragmentA: FragmentA
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_main)
 
-        binding.button.setOnClickListener {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.content, FragmentA()).commit()
+        findViewById<Button>(R.id.button).setOnClickListener {
+            if (savedInstanceState == null) {
+                fragmentA = FragmentA()
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.container_a, fragmentA, "A")
+                    .commit()
+            }
         }
     }
 }

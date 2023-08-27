@@ -1,21 +1,39 @@
 package otus.gpb.homework.fragments
 
 import android.os.Bundle
+import android.util.Log
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import otus.gpb.homework.fragments.databinding.FragmentAbBinding
+import android.widget.Button
+
+private const val ARG_COLOR = "color"
 
 class FragmentAB : Fragment() {
-
-    lateinit var binding: FragmentAbBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentAbBinding.inflate(inflater, container, false)
-        return binding.root
+    ): View? {
+        return inflater.inflate(R.layout.fragment_a_b, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        arguments?.let {
+            val color = it.getInt(ARG_COLOR).or(0)
+            view.setBackgroundColor(color)
+        }
+    }
+
+    companion object {
+        @JvmStatic
+        fun create(color: Int) =
+            FragmentAB().apply {
+                arguments = Bundle().apply {
+                    putInt(ARG_COLOR, color)
+                }
+            }
     }
 }
